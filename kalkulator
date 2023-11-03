@@ -1,0 +1,67 @@
+namespace kalkulator
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            for (int i = 0; i < 5; i++)
+            {
+                
+                Console.WriteLine($"Podaj znak oraz 2 wartości dla {i + 1} zestawu (znak liczba1 liczba2) : ");
+
+                string[] consoleInput = Console.ReadLine().Split(' ');
+
+                char znak = Convert.ToChar(consoleInput[0]);
+
+                double liczba1 = Convert.ToDouble(consoleInput[1]);
+                double liczba2 = Convert.ToDouble(consoleInput[2]);
+
+                double wynik = 0;
+
+                switch (znak)
+                {
+                    case '+':
+
+                        wynik = liczba1 + liczba2;
+                        break;
+
+                    case '-':
+
+                        wynik = liczba1 - liczba2;
+                        break;
+
+                    case '*':
+
+                        wynik = liczba1 * liczba2;
+                        break;
+
+                    case '/':
+                        if (liczba2 != 0)
+                        {
+                            wynik = liczba1 / liczba2;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nie można dzielić przez 0!!!");
+                            return;
+                        }
+                        break;
+
+                    case '%':
+
+                        wynik = liczba1 % liczba2;
+                        break;
+                    default:
+                        Console.WriteLine("Nieprawidłowa operacja!");
+                        return;
+                }
+
+
+                Console.WriteLine("Wynik: " + wynik);
+                Console.WriteLine();
+                
+            }
+        }
+    }
+}
